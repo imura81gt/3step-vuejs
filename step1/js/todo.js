@@ -9,6 +9,7 @@ var app = new Vue({
   },
   methods: {
     addTodo: function(){
+      if (!this.todo) return
       this.todos.push({
         name: this.todo,
         doing: false

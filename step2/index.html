@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>STEP 2</title>
+  </head>
+  <body>
+    <div id="issues">
+        <h2>Latest {{ repository }} issues</h2>
+        <div>
+            <input type="text" v-model="repository"/>
+            <div v-if="hasIssue">
+                <div v-for="issue in issues">
+                    <a :href="issue.html_url" target="_blank">
+                    {{issue.title}}
+                    </a>
+                    <br/>
+                    <span>#{{issue.number}} at {{issue.updated_at | formatDate}}</span>
+                </div>
+            </div>
+            <div v-else>
+              The repository {{ repository }} does not exist!
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="./js/issues.js"></script>
+  </body>
+
+</html>
